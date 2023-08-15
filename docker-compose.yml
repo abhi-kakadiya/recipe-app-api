@@ -1,0 +1,19 @@
+# Version of Docker compose syntax
+version: "3.9"
+
+services:
+  app:
+    build: 
+      context: . # Build in root dir
+      args:
+        - DEV=true
+    ports:
+      # local repo and Docker repo is being mapped, so any change in one will reflect in another
+      - "8000:8000" 
+      #   Loc Dock
+    volumes:
+      - ./app:/app
+    command: 
+      - sh 
+      - -c 
+      - "python manage.py runserver 0.0.0.0:8000"
