@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      - name: Checkout
+      - name: Checkout # Docker provides checkout to check if code is available or not 
         uses: actions/checkout@v2
 
       - name: Test
